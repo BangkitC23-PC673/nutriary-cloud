@@ -1,20 +1,5 @@
 const pool = require('./db');
 
-const getUsers = (req, res) => {
-    pool.query("SELECT * FROM users", (error, results) => {
-        if (error) throw error;
-        res.status(200).json(results.rows);
-    });
-};
-
-const getUsersById = (req, res) => {
-    const id = parseInt(req.params.id);
-    pool.query("SELECT * FROM users WHERE id = $1", [id], (error, results) => {
-        if (error) throw error;
-        res.status(200).json(results.rows);
-    });
-};
-
 const addUser = (req, res) => {
     const { username, email, password } = req.body;
 
@@ -29,6 +14,21 @@ const addUser = (req, res) => {
             if (error) throw error;
             res.status(201).send("User created successfully!");
         })
+    });
+};
+
+const getAllUsers = (req, res) => {
+    pool.query("SELECT * FROM users", (error, results) => {
+        if (error) throw error;
+        res.status(200).json(results.rows);
+    });
+};
+
+const getUserById = (req, res) => {
+    const id = parseInt(req.params.id);
+    pool.query("SELECT * FROM users WHERE id = $1", [id], (error, results) => {
+        if (error) throw error;
+        res.status(200).json(results.rows);
     });
 };
 
@@ -66,9 +66,9 @@ const deleteUserById = (req, res) => {
 };
 
 module.exports = {
-    getUsers,
-    getUsersById,
     addUser,
+    getAllUsers,
+    getUserById,
     editUserById,
     deleteUserById,
 };
