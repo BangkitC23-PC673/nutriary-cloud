@@ -1,5 +1,5 @@
-const md5 = require('md5');
 const pool = require('./db');
+const md5 = require('md5');
 
 const register = (req, res) => {
     const { username, email, password } = req.body;
