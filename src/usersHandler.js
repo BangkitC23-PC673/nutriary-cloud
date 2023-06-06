@@ -1,19 +1,43 @@
+const md5 = require('md5');
 const pool = require('./db');
+const bcrypt = require('bcrypt');
 
-const addUser = (req, res) => {
+const register = (req, res) => {
     const { username, email, password } = req.body;
 
+    const hashedPassword = md5(password);
+
     //Check if email exists
-    pool.query("SELECT s FROM users s WHERE s.email = $1", [email], (error, results) => {
+    pool.query("SELECT s FROM users s WHERE s.username = $1 OR s.email = $2", [username, email], (error, results) => {
         if (results.rows.length) {
-            res.send("Email already exist");
+            res.send("Username or Email already exist");
         };
 
         // Add users to database
-        pool.query("INSERT INTO users (username, email, password) VALUES ($1, $2, $3)", [username, email, password], (error, results) => {
+        pool.query("INSERT INTO users (username, email, password) VALUES ($1, $2, $3)", [username, email, hashedPassword], (error, results) => {
             if (error) throw error;
             res.status(201).send("User created successfully!");
-        })
+        });
+    });
+};
+
+const login = (req, res) => {
+    const { email, password } = req.body;
+
+    const hashedPassword = md5(password);
+
+    pool.query('SELECT * FROM users WHERE email = $1 AND password = $2', [email, hashedPassword], (error, results) => {
+        if (error) {
+          throw error
+        }
+    
+        if (results.rows.length) {
+          res.status(200).send("Selamat datang " + results.rows[0].username);
+        } 
+        else {
+           res.send('Incorrect Username and/or Password!');
+        }			
+        res.end();
     });
 };
 
@@ -66,7 +90,8 @@ const deleteUserById = (req, res) => {
 };
 
 module.exports = {
-    addUser,
+    register,
+    login,
     getAllUsers,
     getUserById,
     editUserById,

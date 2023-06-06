@@ -1,5 +1,6 @@
 const express = require('express');
-const nutriaryRoutes = require('./routes')
+const usersRoutes = require('./usersRoutes')
+const foodRoutes = require('./foodRoutes')
 const app = express();
 const port = 3000
 
@@ -9,6 +10,7 @@ app.get("/", (req, res) => {
     res.send("Hello world!");
 });
 
-app.use("/nutriary", nutriaryRoutes);
+app.use("/users", usersRoutes);
+app.use("/food", foodRoutes);
 
 app.listen(port, () => console.log(`App listening on port ${port}`));
