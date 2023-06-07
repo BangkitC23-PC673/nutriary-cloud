@@ -1,4 +1,4 @@
-const { Router } = require('express');
+/*const { Router } = require('express');
 const usersHandler = require('./usersHandler');
 const usersRouter = Router();
 
@@ -11,4 +11,4 @@ usersRouter.get("/:id", usersHandler.getUserById);
 usersRouter.put("/:id", usersHandler.editUserById);
 usersRouter.delete("/:id", usersHandler.deleteUserById);
 
-module.exports = usersRouter;
+module.exports = usersRouter;*/

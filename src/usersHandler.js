@@ -1,4 +1,4 @@
-const pool = require('./db');
+/*const pool = require('./db');
 const md5 = require('md5');
 
 const register = (req, res) => {
@@ -95,4 +95,4 @@ module.exports = {
     getUserById,
     editUserById,
     deleteUserById,
-};
+};*/
