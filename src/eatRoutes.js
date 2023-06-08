@@ -2,7 +2,7 @@ const { Router } = require('express');
 const eatHandler = require('./eatHandler');
 const eatRouter = Router();
 
-// Eat handler
+// Eat routes
 eatRouter.post('/eat', eatHandler.addEatData);
 eatRouter.get('/eat', eatHandler.getAllEatData);
 eatRouter.get('/eat/:id', eatHandler.getEatDataById);

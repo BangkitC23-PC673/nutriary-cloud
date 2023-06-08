@@ -2,7 +2,7 @@
 const usersHandler = require('./usersHandler');
 const usersRouter = Router();
 
-// Users handler
+// Users routes
 //usersRouter.post("/", usersHandler.addUser);
 usersRouter.post("/register", usersHandler.register);
 usersRouter.post("/login", usersHandler.login);
