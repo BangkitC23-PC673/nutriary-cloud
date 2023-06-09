@@ -6,9 +6,15 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
     res.send("Response success!");
-});
+});*/
+
+app.use(
+    bodyParser.urlencoded({
+      extended: true,
+    })
+);
 
 //app.use("/users", usersRoutes);
 app.use(require("./eatRoutes"));
