@@ -33,7 +33,7 @@ const getEatDataById = (req, res) => {
             res.status(200).json(results.rows);
         }
         else {
-            res.status(404).send("Food data dose not exist!");
+            res.status(404).send("Food data does not exist!");
         }
     });
 };
