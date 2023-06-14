@@ -1,8 +1,8 @@
-# Nutriary - Backend API
+# Nutriary - RESTful API
 
 Nutriary is an android mobile app that serves to control daily nutrition and calories according to BMR results.
 
-The backend is created to get food nutrition data taken from the the postgresql database in the GCP Cloud SQL. From this bakcend generates the following endpoints:
+The RESTful API is created to get food nutrition data taken from the the postgresql database server in the GCP Cloud SQL. From this RESTful API generates the following endpoints:
 
 | Method | Endpoint | Description |
 | ----------- | --------- | ---------- |
@@ -16,7 +16,7 @@ The backend is created to get food nutrition data taken from the the postgresql 
 After being tested locally 
   * Make a project in GCP
   * Conect the project to the billing account
-  * Create an App Engine application to deploy the backend
+  * Create an App Engine application to deploy the RESTful API
   * Open Cloud Shell in Google Cloud Console
   * Input this command to clone the repository from Github: `git clone -b main https://github.com/BangkitC23-PC673/nutriary-cloud.git`
   * Make an `app.yaml` file. Type `runtime: nodejs16` in the file
