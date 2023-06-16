@@ -1,8 +1,8 @@
 # Nutriary - RESTful API
 
-Nutriary is an android mobile app that serves to control daily nutrition and calories according to BMR results.
+Nutriary is an Android mobile app that serves to control daily nutrition and calories according to BMR results.
 
-The RESTful API is created to get food nutrition data taken from the the postgresql database server in the GCP Cloud SQL. From this RESTful API generates the following endpoints:
+The RESTful API is created to get food nutrition data taken from the PostgreSQL database server in the GCP Cloud SQL. From this RESTful API generates the following endpoints:
 
 | Method | Endpoint | Description |
 | ----------- | --------- | ---------- |
@@ -13,9 +13,9 @@ The RESTful API is created to get food nutrition data taken from the the postgre
 | DELETE | /eat/:id | User can delete the data that has been inputed by ID (do not need to type the colon sign ':', just type the ID) |
 
 # Deployment
-After being tested locally 
+After being tested locally, these is the steps to deploy the RESTful API:
   * Make a project in GCP
-  * Conect the project to the billing account
+  * Connect the project to the billing account
   * Create an App Engine application to deploy the RESTful API
   * Open Cloud Shell in Google Cloud Console
   * Input this command to clone the repository from Github: `git clone -b main https://github.com/BangkitC23-PC673/nutriary-cloud.git`
@@ -24,7 +24,8 @@ After being tested locally
   * Type `gcloud app browse` to get the link. For example: `https://predictive-guru-387911.et.r.appspot.com`
   * Open the link to see the result
 
-Use the link to test the result on Postman. The result will be like this:
+These steps also can be used to replicate the RESTful API.
+Use the link from deployment to test the result on Postman. The result will be like this:
 
 ### POST
 To input new data to database, just add `/eat` after the link. <br>
@@ -38,12 +39,12 @@ And input with JSON format like this:
     "date_time": "2023-06-07T21:25:23.000Z"
 }
 ```
-If succes, the result will display `Eat data added successfully!`.
+If success, the result will display `Eat data added successfully!`.
 
 ### GET
 To get all of the data, just add `/eat` after the link. <br>
 For example: `https://predictive-guru-387911.et.r.appspot.com/eat` <br>
-If succes, the result will display a json format like this:
+If success, the result will display a JSON format like this:
 ```
 [
     {
@@ -67,8 +68,8 @@ If succes, the result will display a json format like this:
 ### GET by ID
 To get data by ID. just add `/eat/:id` after the link, but without the colon sign `:`. <br>
 For example: `https://predictive-guru-387911.et.r.appspot.com/eat/1` <br>
-If the ID not found, the reslut will display `Eat data does not exist!` <br>
-If succes, the result will display a json format like this:
+If the ID is not found, the result will display `Eat data does not exist!` <br>
+If success, the result will display a JSON format like this:
 ```
 [
     {
@@ -102,11 +103,11 @@ To this:
     "date_time": "2023-06-07T21:25:23.000Z"
 }
 ```
-If the ID not found, the reslut will display `Eat data does not exist!` <br>
+If the ID is not found, the result will display `Eat data does not exist!` <br>
 If success, the result will display `Eat data updated successfully!`
 
 ### DELETE by ID
 To edit/update data by ID. just add `/eat/:id` after the link, but without the colon sign `:`. <br>
 For example: `https://predictive-guru-387911.et.r.appspot.com/eat/1` <br>
-If the ID not found, the reslut will display `Eat data does not exist!` <br>
+If the ID is not found, the result will display `Eat data does not exist!` <br>
 If success, the result will display `Eat data deleted successfully!`
