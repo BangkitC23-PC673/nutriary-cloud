@@ -24,7 +24,7 @@ After being tested locally, these is the steps to deploy the RESTful API:
   * Type `gcloud app browse` to get the link. For example: `https://predictive-guru-387911.et.r.appspot.com`
   * Open the link to see the result
 
-These steps also can be used to replicate the RESTful API.
+These steps also can be used to replicate the RESTful API. <br>
 Use the link from deployment to test the result on Postman. The result will be like this:
 
 ### POST
